@@ -69,10 +69,6 @@ fn manhatten_contour<'a>(
 ) -> impl Fn(i32) -> Option<[i32; 2]> + 'a {
     move |y| {
         let distance = distance - (center[1] - y).abs();
-        let z = [center[0] - distance, center[0] + distance];
-        match z[0] <= z[1] {
-            true => Some(z),
-            false => None,
-        }
+        (distance >= 0).then(|| [center[0] - distance, center[0] + distance])
     }
 }
