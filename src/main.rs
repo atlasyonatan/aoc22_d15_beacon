@@ -65,6 +65,7 @@ fn main() {
     }
     println!("part 1: {}", no_beacons.iter().filter(|&&b| b).count());
 
+    println!("part 2:");
     //part 2
     match find_hole(&beacon_range, &beacon_range, &inputs) {
         Some(point) => println!(
